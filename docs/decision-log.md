@@ -1,17 +1,14 @@
-# Project Decision Log
+# Decision Log
 
-| ID | Decision | Reason | Status |
-|---|---|---|---|
-| D-01 | Use semantic HTML pages for the customer and team portals. | Keeps the two user areas clearly separated and the markup understandable. | Accepted |
-| D-02 | Use a shared stylesheet for both pages. | Maintains a consistent visual language and reduces duplicated CSS. | Accepted |
-| D-03 | Use the Northstar palette: deep navy, midnight blue, slate blue, sage green, warm beige and ivory. | Provides a restrained, professional visual identity. | Accepted |
-| D-04 | Keep customer workflows and team workflows in separate pages. | Makes the intended user journeys easier to understand. | Accepted |
-| D-05 | Implement features in documented milestones. | Makes progress reviewable and supports incremental testing. | Accepted |
+## Day 1 — Foundation
+- Established a plain HTML, CSS and JavaScript project structure.
+- Kept customer and team pages separate.
+- Chose a navy, slate, sage, beige and ivory visual palette.
 
-## Change record
-
-### Day 1 — Foundation
-- Created the initial customer portal structure.
-- Created the initial team portal placeholder.
-- Added shared typography, color tokens and responsive base styles.
-- Added initial requirements and decision documentation.
+## Day 2 — Customer portal
+- Chose an editorial, image-led service presentation instead of generic icon cards.
+- Used service-specific photography to make the service categories easier to scan.
+- Kept Team Portal visible in the primary navigation and footer.
+- Added a customer enquiry form interface with native browser validation.
+- Kept request persistence, reference generation and tracking out of Day 2 scope so they can be implemented and tested as a separate Day 3 milestone.
+- Used external Unsplash image URLs for the prototype; local optimized assets can be considered during a later refinement pass.

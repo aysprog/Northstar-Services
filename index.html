@@ -1,58 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Northstar Services — a simple portal for discovering services and contacting our team.">
+  <meta name="description" content="Discover dependable local services and get in touch with the Northstar team.">
   <title>Northstar Services | Local Service Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Northstar Services home">Northstar<span>.</span></a>
+    <a class="brand" href="#home" aria-label="Northstar Services home">northstar<span>.</span></a>
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#home">Home</a>
-      <a href="#services">Services</a>
+      <a href="#services">Our services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a class="team-link" href="admin.html">Team Portal</a>
+      <a class="team-link" href="admin.html">Team portal <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <p class="eyebrow">LOCAL SERVICE PORTAL</p>
-      <h1>Reliable help, <em>one request away.</em></h1>
-      <p class="hero-copy">A simple place to explore services, send an enquiry and stay informed about your request.</p>
-      <a class="button button-primary" href="#services">Explore services</a>
+      <div class="hero-content">
+        <p class="eyebrow light-eyebrow">LOCAL SUPPORT, MADE SIMPLE</p>
+        <h1>Good service begins with <em>a conversation.</em></h1>
+        <p class="hero-copy">From everyday fixes to thoughtful improvements, find the right local support and let our
+          team take it from here.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#services">Explore our services <span aria-hidden="true">↗</span></a>
+          <a class="text-link light-link" href="#contact">Talk to our team</a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span><span>Thoughtful help. Clear communication. Local
+            care.</span></div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Warm, thoughtfully designed modern home interior">
+        <div class="image-caption"><span>01 / NORTHSTAR APPROACH</span><span>Care in every detail</span></div>
+      </div>
+      <div class="hero-index" aria-hidden="true">N° 01</div>
     </section>
 
-    <section class="section" id="services">
-      <p class="eyebrow">WHAT WE OFFER</p>
-      <h2>Services will be introduced here.</h2>
-      <p class="section-copy">This section will be developed in Day 2 with clear service information and a considered visual layout.</p>
+    <section class="intro-strip" aria-label="Our service promise">
+      <p>HERE WHEN YOU NEED A HAND</p>
+      <p class="intro-message">A more considered way to get things sorted.</p>
+      <a href="#about" aria-label="Learn about Northstar">Discover Northstar <span aria-hidden="true">↗</span></a>
     </section>
 
-    <section class="section section-soft" id="about">
-      <p class="eyebrow">ABOUT NORTHSTAR</p>
-      <h2>A clearer way to connect with local services.</h2>
-      <p class="section-copy">Northstar is a demonstration service portal designed to make customer enquiries and team follow-up easier to understand.</p>
+    <section class="section services-section" id="services">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE NORTHSTAR COLLECTION</p>
+          <h2>Practical help.<br><em>Handled with care.</em></h2>
+        </div>
+        <p class="section-lead">Explore a few of the ways our team can make your day a little easier. Choose a service
+          to tell us what you need.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card service-card-large">
+          <a class="service-image image-home" href="#contact" aria-label="Enquire about home care"></a>
+          <div class="service-meta"><span>01 — HOME</span><span>EVERYDAY ESSENTIALS</span></div>
+          <h3>Home care &amp; upkeep</h3>
+          <p>Thoughtful support for the spaces you live in, from routine care to those small jobs that make a big
+            difference.</p>
+          <a class="service-link" href="#contact" data-service="Home care & upkeep">Enquire about this service <span
+              aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <a class="service-image image-repairs" href="#contact" aria-label="Enquire about repairs and maintenance"></a>
+          <div class="service-meta"><span>02 — REPAIRS</span><span>FIX &amp; MAINTAIN</span></div>
+          <h3>Repairs &amp; maintenance</h3>
+          <p>Reliable help with the practical details that keep your home or workplace running smoothly.</p>
+          <a class="service-link" href="#contact" data-service="Repairs & maintenance">Enquire about this service <span
+              aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <a class="service-image image-cleaning" href="#contact" aria-label="Enquire about cleaning services"></a>
+          <div class="service-meta"><span>03 — CLEAN</span><span>FRESH STARTS</span></div>
+          <h3>Cleaning &amp; refresh</h3>
+          <p>Give your space a fresh start with practical cleaning and detail-focused upkeep.</p>
+          <a class="service-link" href="#contact" data-service="Cleaning & refresh">Enquire about this service <span
+              aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <a class="service-image image-business" href="#contact" aria-label="Enquire about business support"></a>
+          <div class="service-meta"><span>04 — BUSINESS</span><span>WORKPLACE SUPPORT</span></div>
+          <h3>Business support</h3>
+          <p>Flexible assistance for local teams who need an extra pair of hands with day-to-day tasks.</p>
+          <a class="service-link" href="#contact" data-service="Business support">Enquire about this service <span
+              aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <p class="service-disclaimer">Service categories shown are illustrative for this demonstration portal.</p>
     </section>
 
-    <section class="section" id="contact">
-      <p class="eyebrow">GET IN TOUCH</p>
-      <h2>Have a service in mind?</h2>
-      <p class="section-copy">The enquiry form will be added as part of the customer portal implementation.</p>
+    <section class="about-band" id="about">
+      <div class="about-mark" aria-hidden="true">N.</div>
+      <div class="about-content">
+        <p class="eyebrow light-eyebrow">A BETTER WAY TO CONNECT</p>
+        <h2>Clear from the<br>very first hello.</h2>
+        <p>Northstar brings service discovery and customer enquiries into one straightforward place. Tell us what you
+          need, share the details that matter, and our team can follow up with clarity.</p>
+        <a class="text-link light-link" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="about-side-note">BUILT AROUND PEOPLE<br>AND THE DETAILS THAT MATTER.</div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-intro">
+        <p class="eyebrow">LET'S GET STARTED</p>
+        <h2>Tell us what<br><em>you have in mind.</em></h2>
+        <p>Share a few details below. This enquiry form is the first step toward getting the right support.</p>
+        <div class="contact-detail"><span class="detail-label">THE PROCESS</span><span>01. Tell us what you need<br>02.
+            Our team reviews your enquiry<br>03. We follow up with next steps</span></div>
+      </div>
+      <form class="enquiry-form" id="enquiry-form">
+        <div class="form-heading"><span>YOUR ENQUIRY</span><span>ALL FIELDS MARKED * ARE REQUIRED</span></div>
+        <div class="form-row">
+          <label>Full name *
+            <input type="text" name="fullName" placeholder="Your full name" required autocomplete="name">
+          </label>
+          <label>Email address *
+            <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Phone number *
+            <input type="tel" name="phone" placeholder="Your contact number" required autocomplete="tel">
+          </label>
+          <label>Service of interest *
+            <select name="service" id="service-select" required>
+              <option value="">Choose a service</option>
+              <option>Home care &amp; upkeep</option>
+              <option>Repairs &amp; maintenance</option>
+              <option>Cleaning &amp; refresh</option>
+              <option>Business support</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+        <label>How can we help? *
+          <textarea name="message" rows="5" placeholder="Tell us a little about what you need..." required></textarea>
+        </label>
+        <div class="form-submit-row">
+          <p>Your details will be used only to respond to this enquiry in this demonstration.</p>
+          <button class="button button-dark" type="submit">Prepare enquiry <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
   <footer class="site-footer">
+    <a class="footer-brand" href="#home">northstar<span>.</span></a>
     <p>© <span id="current-year">2026</span> Northstar Services. Demonstration project.</p>
-    <a href="admin.html">Staff / Team Access</a>
+    <a href="admin.html">Staff / Team Access ↗</a>
   </footer>
 </body>
+
 </html>
