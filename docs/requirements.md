@@ -1,43 +1,32 @@
-# Project Requirements — Northstar Services
+# Requirements and acceptance criteria
 
-## Purpose
-Create a responsive demonstration portal where customers can discover local service categories and prepare an enquiry for a simulated service company.
+## Stakeholders
+- Customer: discovers services, submits enquiries and checks request progress.
+- Team member: reviews submitted enquiries and updates request statuses.
 
-## Primary stakeholders
-- Customers: explore services and provide enquiry details.
-- Service team: access the separate team portal in a later implementation milestone.
+## Customer workflow
+1. Customer enters name, email, phone, service and message.
+2. Client-side validation checks required fields, email format and minimum phone digits.
+3. A reference identifier is generated and the request is saved locally with status `Received`.
+4. Customer enters the reference to view the request's latest status and timestamps.
 
-## Day 2 scope
-- Customer-facing navigation and page structure.
-- Hero section communicating the portal's purpose.
-- Service discovery section with clear descriptions and relevant images.
-- About section explaining the service experience.
-- Enquiry form interface with appropriate fields and browser-native required-field validation.
-- Responsive presentation across desktop, tablet and mobile widths.
+## Team workflow
+1. Team member enters the documented demonstration credentials.
+2. Dashboard displays request counts and saved requests.
+3. Team member searches or filters the request list.
+4. Team member selects a new status; the record and update timestamp are saved.
+5. Customer tracking reads the same local record and displays the updated status.
 
-## Inputs
-- Customer name
-- Email address
-- Phone number
-- Service category
-- Enquiry message
+## Acceptance criteria
+- Invalid enquiries are not persisted.
+- Valid enquiries receive a reference and initial `Received` status.
+- A valid reference retrieves only the matching request.
+- Invalid team credentials do not open the dashboard.
+- Valid demonstration credentials open the dashboard.
+- Search and both filters narrow the visible request list.
+- Status changes persist in local storage and update the timestamp.
+- Customer tracking reflects team status changes in the same browser profile.
+- Signing out returns the team member to the sign-in screen.
 
-## Expected Day 2 output
-A usable customer-facing page that explains the service offering and presents a clear enquiry interface.
-
-## Out of scope for Day 2
-- Persisting or transmitting enquiries.
-- Generating request reference IDs.
-- Customer request tracking.
-- Admin authentication and request status management.
-
-## Design constraints
-Use the agreed Northstar palette: Deep Navy `#0D1B2A`, Midnight Blue `#1B263B`, Slate Blue `#415A77`, Sage Green `#778B7A`, Warm Beige `#D4C4AB`, and Ivory `#F4F1DE`.
-
-## Acceptance checks
-- Navigation links move to the correct page sections.
-- Team Portal is visible in the main navigation.
-- Service cards have relevant imagery and readable descriptions.
-- Service enquiry links preselect the related category in the form.
-- Required fields are identified and browser validation is active.
-- Layout remains usable at narrow screen widths.
+## Constraints and risks
+This project is a front-end simulation. Client-side credentials and browser storage do not provide production security, centralised data management or multi-user access. No real customer information should be entered.

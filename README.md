@@ -1,51 +1,85 @@
-# Northstar Services
+# Northstar Services — Local Business Service Portal
 
-A responsive local business service portal created as a web development internship project.
+Northstar Services is a responsive front-end demonstration of a local service business workflow. Customers can explore service categories, submit enquiries and track request statuses. A simulated internal team portal allows staff to review saved enquiries and update their status.
 
-## Project status
+## Features
 
-**Day 2 — Core customer portal in progress**
+### Customer portal
+- Responsive service discovery and enquiry interface.
+- Required-field, email and phone-number validation.
+- Generated enquiry reference on successful submission.
+- Browser-based request persistence.
+- Reference-based request tracking with current status and timestamps.
 
-The current milestone introduces the customer-facing experience: navigation, hero section, service discovery, about section and enquiry form interface.
-
-## Day 2 features
-
-- Responsive customer navigation with a visible Team Portal entry
-- Editorial-style hero section with supporting image
-- Four illustrative service categories with relevant photography
-- Service links that preselect the matching enquiry category
-- Customer enquiry form layout with native required-field validation
-- Responsive layouts for desktop, tablet and mobile
-
-## Technology
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Google Fonts (DM Sans and Playfair Display)
-- Unsplash-hosted demonstration photography
+### Team portal
+- Demo sign-in screen with session-based access state.
+- Request overview with total, received, in-progress and completed counts.
+- Search by customer, reference, email, phone, service or message.
+- Filter requests by status and service category.
+- Update request status: Received, In Review, In Progress, Completed or Closed.
+- Updated timestamps are saved and reflected in customer tracking.
 
 ## Run locally
 
-1. Download or clone this repository.
-2. Open the project folder in Visual Studio Code.
-3. Run `index.html` with Live Server, or open it in a browser.
+1. Clone or download the repository.
+2. Open the project folder in VS Code.
+3. Launch `index.html` using a local development server such as VS Code Live Server, or open it directly in a modern browser.
+4. Submit an enquiry through the customer portal.
+5. Open **Team Portal** and sign in with the demonstration credentials below.
+6. Update a request status, then return to customer tracking to verify the change.
 
-## Design direction
+No package installation or build step is required.
 
-- Deep Navy: `#0D1B2A`
-- Midnight Blue: `#1B263B`
-- Slate Blue: `#415A77`
-- Sage Green: `#778B7A`
-- Warm Beige: `#D4C4AB`
-- Ivory: `#F4F1DE`
+## Demonstration team access
 
-## Current scope and limitations
+| Field | Value |
+|---|---|
+| Email | `team@northstar.test` |
+| Password | `NorthstarDemo!26` |
 
-The enquiry form is currently a front-end interface only. It uses browser-native required-field validation, but it does not save or submit customer requests yet. Request creation, reference IDs and tracking are planned for Day 3. The team dashboard workflow is planned for a later milestone.
+These credentials are embedded in client-side JavaScript for demonstration purposes only. They are not secure authentication and must not be used to protect real customer data.
 
-The service categories and business are illustrative and are part of a demonstration project. Images are loaded from Unsplash and therefore require an internet connection.
+## Project structure
 
-## Next milestone
+```text
+northstar-services/
+├── index.html          # Customer portal and request tracking
+├── admin.html          # Team sign-in and request dashboard
+├── styles.css          # Shared responsive styles
+├── app.js              # Customer enquiry and tracking logic
+├── admin.js            # Team access and request administration
+└── docs/
+    ├── requirements.md
+    └── decision-log.md
+```
 
-Day 3 — Request management: implement form processing, request reference generation and customer request tracking.
+## Data handling and limitations
+
+- Enquiries are stored in the browser's `localStorage` under `northstar.requests.v1`.
+- The team sign-in state is held in `sessionStorage` and ends when the browser tab/session is closed or the user signs out.
+- Data is local to the browser profile. It is not synchronised across devices or users.
+- There is no backend API, database, server-side authentication, role-based authorisation, email notification or audit log.
+- Browser storage can be edited or cleared by the user. The demonstration must not be used with real or sensitive customer information.
+- Service categories and business content are illustrative.
+
+A production implementation would require server-side identity management, access controls, validated API endpoints, persistent database storage, secure transport, privacy controls and operational monitoring.
+
+## Manual validation checklist
+
+- [ ] Submit an incomplete enquiry and confirm it is rejected.
+- [ ] Submit an invalid email and confirm it is rejected.
+- [ ] Submit a phone number containing fewer than seven digits and confirm it is rejected.
+- [ ] Submit valid details and record the generated reference.
+- [ ] Track the reference and confirm the request details are shown.
+- [ ] Sign in with incorrect credentials and confirm access is denied.
+- [ ] Sign in with the demonstration credentials and confirm the dashboard loads.
+- [ ] Search by customer name and by reference number.
+- [ ] Filter requests by status and service.
+- [ ] Change a request status and confirm the updated timestamp changes.
+- [ ] Track the same request from the customer portal and confirm the new status appears.
+- [ ] Sign out and confirm the login screen is shown.
+- [ ] Check customer and team pages at mobile, tablet and desktop widths.
+
+## Technology
+
+HTML5 · CSS3 · Vanilla JavaScript · Web Storage API
