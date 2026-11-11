@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Northstar Services internal request management demonstration.">
-  <title>Team Portal | Northstar Services</title>
+  <meta name="description" content="Northstar Services team request management demo.">
+  <title>Team Portal — Northstar Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="admin.js" defer></script>
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">northstar<span>.</span></a>
-    <nav class="main-nav" aria-label="Team navigation">
-      <a href="index.html">Customer portal</a>
-      <a href="index.html#track-request">Request tracking</a>
-      <a href="index.html#services">Services</a>
-    </nav>
-  </header>
 
-  <main class="portal-page">
-    <section class="login-wrap" id="login-view">
-      <form class="login-panel" id="login-form">
-        <p class="eyebrow">NORTHSTAR / INTERNAL ACCESS</p>
-        <h1>Team sign in</h1>
-        <p>Sign in to review customer enquiries and maintain request statuses in this demonstration portal.</p>
-        <label for="team-email">Team email</label>
-        <input id="team-email" name="email" type="email" autocomplete="username" placeholder="team@northstar.test" required>
-        <label for="team-password">Password</label>
-        <input id="team-password" name="password" type="password" autocomplete="current-password" placeholder="Enter demo password" required>
-        <button class="button button-dark" type="submit">Sign in</button>
-        <p class="login-message" id="login-message" role="alert" aria-live="polite"></p>
-        <div class="demo-note"><strong>Demonstration access</strong><br>Email: team@northstar.test<br>Password: NorthstarDemo!26<br>These client-side credentials are for local demonstration only and do not provide real security.</div>
+<body class="admin-body">
+  <header class="site-header admin-header"><a class="brand" href="index.html"><span
+        class="brand-mark">N</span><span>northstar<span class="brand-light"> services</span></span></a><a
+      class="back-link" href="index.html">← Back to website</a></header>
+  <main class="admin-main section-wrap">
+    <section id="loginPanel" class="login-panel">
+      <div class="eyebrow">NORTHSTAR / TEAM ACCESS</div>
+      <h1>Welcome <em>back.</em></h1>
+      <p>Sign in to review and manage incoming service requests.</p>
+      <form id="loginForm"><label>Demo email<input name="email" type="email" required
+            value="team@northstar.demo"></label><label>Demo password<input name="password" type="password" required
+            value="NorthstarDemo1"></label><button class="btn btn-dark" type="submit">Open team portal
+          <span>↗</span></button><small class="demo-note">Demo credentials are pre-filled for evaluation.</small>
+        <div class="form-alert" id="loginAlert" role="alert"></div>
       </form>
     </section>
-
-    <section id="dashboard-view" hidden>
-      <div class="portal-heading">
-        <div><p class="eyebrow">NORTHSTAR / OPERATIONS</p><h1>Enquiry dashboard</h1><p>Review submitted requests and keep their statuses up to date.</p></div>
-        <button class="button button-secondary" id="logout-button" type="button">Sign out</button>
+    <section id="dashboardPanel" hidden>
+      <div class="admin-title-row">
+        <div>
+          <div class="eyebrow">NORTHSTAR / OPERATIONS</div>
+          <h1>Request <em>overview.</em></h1>
+          <p>Review enquiries and keep each request moving.</p>
+        </div><button class="btn btn-outline" id="logoutBtn">Sign out</button>
       </div>
-      <div class="dashboard-stats" aria-label="Request summary">
-        <article class="stat-card"><span>Total requests</span><strong id="stat-total">0</strong></article>
-        <article class="stat-card"><span>Received</span><strong id="stat-received">0</strong></article>
-        <article class="stat-card"><span>In progress</span><strong id="stat-progress">0</strong></article>
-        <article class="stat-card"><span>Completed</span><strong id="stat-completed">0</strong></article>
+      <div class="stats-grid" id="statsGrid"></div>
+      <div class="toolbar">
+        <div class="search-box"><span>⌕</span><input id="adminSearch" type="search"
+            placeholder="Search name, reference or service..." aria-label="Search requests"></div><select
+          id="statusFilter" aria-label="Filter by status">
+          <option value="all">All statuses</option>
+          <option>New</option>
+          <option>In Review</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+          <option>Closed</option>
+        </select><button class="btn btn-outline export-btn" id="exportBtn">Export CSV ↓</button>
       </div>
-      <div class="dashboard-panel">
-        <div class="dashboard-toolbar">
-          <div class="filter-field"><label for="request-search">Search requests</label><input id="request-search" type="search" placeholder="Name, reference, email or service"></div>
-          <div class="filter-field"><label for="status-filter">Status</label><select id="status-filter"><option value="all">All statuses</option><option>Received</option><option>In Review</option><option>In Progress</option><option>Completed</option><option>Closed</option></select></div>
-          <div class="filter-field"><label for="service-filter">Service</label><select id="service-filter"><option value="all">All services</option><option>Home care & upkeep</option><option>Repairs & maintenance</option><option>Cleaning & refresh</option><option>Business support</option><option>Not sure yet</option></select></div>
-        </div>
-        <div class="request-list" id="request-list" aria-live="polite"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>REQUEST</th>
+              <th>CUSTOMER</th>
+              <th>SERVICE</th>
+              <th>SUBMITTED</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="requestRows"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" hidden>No requests match your search.</div>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <a class="footer-brand" href="index.html">northstar<span>.</span></a>
-    <p>© <span id="current-year">2026</span> Northstar Services. Demonstration project.</p>
-    <a href="index.html">Customer portal ↗</a>
-  </footer>
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <section class="modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><button
+        class="modal-close" data-close-modal aria-label="Close request details">×</button>
+      <div class="eyebrow">REQUEST DETAILS</div>
+      <h2 id="detailTitle">Review <em>request.</em></h2>
+      <div id="detailContent"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
+
 </html>
